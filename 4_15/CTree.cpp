@@ -125,35 +125,32 @@ int CTree::odd_cnt()
 	return odd_cnt(root);
 }
 
-/* поиск максимального ключа */
 int CTree::r_key(CVetv* dr) {
 	if (dr) {
-		if (dr->r == NULL) return dr->key; // если правый узел равный нулю, то он максимальный, возвращаем ключ
-		else return r_key(dr->r); // иначе идём право
+		if (dr->r == NULL) return dr->key;
+		else return r_key(dr->r);
 	}
 	else return NULL;
 }
 
-/* поиск минимального ключа */
 int CTree::l_key(CVetv* dr) {
 	if (dr) {
-		if (dr->l == NULL) return dr->key; // если левый узел равный нулю, то он минимальный, возвращаем ключ
-		else return l_key(dr->l); // иначё идём влево
+		if (dr->l == NULL) return dr->key;
+		else return l_key(dr->l);
 	}
 	else return NULL;
 }
 
 CVetv* CTree::find_key(int key, CVetv* dr) {
-	if (!dr) return NULL; // если узла не существует, то возвращаем ноль
-	if (dr->key == key) return dr; // если нашли ключ равный указателю key (среднему ключу), то возвращаем указатель dr
-	if (dr->key > key && dr->l->key > key) return find_key(key, dr->l); // если ключ больше указателя key и его левый узел тоже, то идём на лево 
-	else if (dr->key > key && dr->l->key < key) return dr; // если ключ больше указателя key и его левый узел меньше указателя key, то возвращаем указатель dr
-	if (dr->key < key && dr->r->key > key) return find_key(key, dr->r); // если ключ меньше указателя key и его правый узел больше указателя key, то идём право
-	else if (dr->key < key && dr->r->key < key) return dr; // если ключ ключ больше указателя key и его правый узел меньше указателя key, то возвращаем указатель dr
-	else return NULL; // если ниодно условие не сработало, возвращаем ноль
+	if (!dr) return NULL;
+	if (dr->key == key) return dr;
+	if (dr->key > key && dr->l->key > key) return find_key(key, dr->l);
+	else if (dr->key > key && dr->l->key < key) return dr;
+	if (dr->key < key && dr->r->key > key) return find_key(key, dr->r);
+	else if (dr->key < key && dr->r->key < key) return dr;
+	else return NULL;
 }
 
-/* метод который начинает поиск с корня дерева */
 CVetv* CTree::find_key() {
-	return find_key(((r_key(root) + l_key(root)) / 2), root); // вызываем метод для поиска минимального и максимального ключа, затем делим на два
+	return find_key(((r_key(root) + l_key(root)) / 2), root);
 }
