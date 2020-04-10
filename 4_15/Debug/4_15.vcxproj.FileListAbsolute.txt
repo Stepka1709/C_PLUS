@@ -1,0 +1,2 @@
+C:\Codes\C++\4_15\Debug\4_15.exe
+C:\Codes\C++\4_15\Debug\4_15.pdb
