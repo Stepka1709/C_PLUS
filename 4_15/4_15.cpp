@@ -1,4 +1,8 @@
-﻿#include <iostream>
+/*
+Найти запись с ключом, ближайшим к среднему значению между максимальным и минимальным значениями ключей.
+*/
+
+#include <iostream>
 #include <Windows.h>
 #include "CTree.h"
 
