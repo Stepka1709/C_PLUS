@@ -100,7 +100,6 @@ CTree::~CTree()
 	delete root;
 }
 
-// нет удаления (нужна ссылка на предка которого мы удаляем)
 void CTree::del_vet(CVetv* dr)
 {
 	if (dr) {
